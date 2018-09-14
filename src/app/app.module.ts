@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
+import { FormsModule} from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 import { PERFECT_SCROLLBAR_CONFIG } from 'ngx-perfect-scrollbar';
@@ -42,9 +44,12 @@ import { ChartsModule } from 'ng2-charts/ng2-charts';
 import { AuthGuard } from './services/auth.guard';
 import { AuthRouteService } from './services/auth.service';
 import { HttpClientModule } from '@angular/common/http';
+import { AuthInterceptor } from './services/auth.interceptor';
 
 @NgModule({
   imports: [
+    BrowserAnimationsModule,
+    FormsModule,
     BrowserModule,
     AppRoutingModule,
     AppAsideModule,
@@ -69,7 +74,7 @@ import { HttpClientModule } from '@angular/common/http';
   providers: [{
     provide: LocationStrategy,
     useClass: HashLocationStrategy
-  }, AuthGuard, AuthRouteService],
+  }, AuthGuard, AuthRouteService,AuthInterceptor],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }

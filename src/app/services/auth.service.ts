@@ -23,7 +23,7 @@ export class AuthRouteService {
     }
 
     login(username: string, password: string): Observable<any> {
-        const data = 'username=' + username + '&password=' + password + '&grant_type=password';
+        const data = 'username=' + username + "&password=" + password + "&grant_type=password";
         const reqHeader = new HttpHeaders({'Content-Type': 'application/x-www-urlencoded'});
         return this._http.post(this.API_URL + 'auth/login', data, {headers: reqHeader});
     }

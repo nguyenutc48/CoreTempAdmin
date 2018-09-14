@@ -38,8 +38,9 @@ export class LoginComponent implements OnInit {
   // }
 
   OnSubmit(userName, password) {
+    debugger;
     this.authService.login(userName, password).subscribe((data: any) => {
-      localStorage.setItem('userToken', data.access_token);
+      //localStorage.setItem('userToken', data.token);
       this.router.navigateByUrl('/dashboard');
     },
     (err: HttpErrorResponse) => {
