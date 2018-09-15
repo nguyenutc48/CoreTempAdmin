@@ -13,6 +13,7 @@ export class LoginComponent implements OnInit {
 
   isLoginError = false;
   errorMsg = '';
+  passwordPatternStreng = '(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$';
 
   constructor(
     private authService: AuthRouteService,

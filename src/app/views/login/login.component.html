@@ -19,7 +19,7 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="icon-lock"></i></span>
                     </div>
-                    <input #Password name="Password" type="password" class="form-control" placeholder="Password" autocomplete="current-password" required>
+                    <input #Password name="Password" type="password" class="form-control" placeholder="Password" autocomplete="current-password" [pattern]="passwordPatternStreng" required>
                   </div>
                   {{errorMsg}}
                   <div class="row">

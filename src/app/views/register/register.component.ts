@@ -3,6 +3,7 @@ import { AuthRouteService } from '../../services/auth.service';
 import { User } from '../../models/user.model';
 import { NgForm } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -14,15 +15,14 @@ export class RegisterComponent implements OnInit {
   passwordPatternStreng = '(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$';
   passwordPatternNormal = '^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$';
 
-  constructor(private authservice: AuthRouteService, private toastr: ToastrService) { }
+  constructor(private authservice: AuthRouteService, private toastr: ToastrService, private route: Router) { }
 
   ngOnInit() {
     this.resetForm();
-    this.showSuccess();
   }
 
   showSuccess() {
-    this.toastr.success('khong hien thi', 'Chan');
+    this.route.navigateByUrl('/login');
   }
 
   resetForm(form?: NgForm) {
