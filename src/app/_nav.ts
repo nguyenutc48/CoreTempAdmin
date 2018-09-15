@@ -5,7 +5,7 @@ export const navItems = [
     icon: 'icon-speedometer',
     badge: {
       variant: 'info',
-      text: 'NEW'
+      text: 'Home'
     }
   },
   {
@@ -216,15 +216,15 @@ export const navItems = [
     ]
   },
   {
-    name: 'Download CoreUI',
-    url: 'http://coreui.io/angular/',
+    name: 'About',
+    url: '#',
     icon: 'icon-cloud-download',
     class: 'mt-auto',
     variant: 'success'
   },
   {
-    name: 'Try CoreUI PRO',
-    url: 'http://coreui.io/pro/angular/',
+    name: 'Help',
+    url: '#',
     icon: 'icon-layers',
     variant: 'danger'
   }

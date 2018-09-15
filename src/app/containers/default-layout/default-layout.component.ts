@@ -24,8 +24,6 @@ export class DefaultLayoutComponent {
   }
 
   Logout() {
-    // tslint:disable-next-line:no-debugger
-    debugger;
     this.authservice.logout();
     localStorage.removeItem('userToken');
     this.route.navigateByUrl('/login');

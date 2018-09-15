@@ -46,6 +46,7 @@ import { AuthRouteService } from './services/auth.service';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
 import { AuthInterceptor } from './services/auth.interceptor';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   imports: [
@@ -63,7 +64,8 @@ import { AuthInterceptor } from './services/auth.interceptor';
     TabsModule.forRoot(),
     ChartsModule,
     HttpClientModule,
-    HttpModule
+    HttpModule,
+    ToastrModule.forRoot()
   ],
   declarations: [
     AppComponent,

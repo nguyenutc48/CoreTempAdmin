@@ -23,23 +23,6 @@ export class LoginComponent implements OnInit {
 
   }
 
-  // login(username, password): void {
-  //   this.authService.login(username, password).subscribe(
-  //     res => {
-  //       if (res.data.count === 1) {
-  //         this.errorMsg = '';
-  //         localStorage.setItem('auth_token', this.loginForm.value.username);
-  //         this.router.navigateByUrl('/dashboard');
-  //       } else {
-  //         this.errorMsg = 'Invalid Account';
-  //       }
-  //     },
-  //     error => {
-  //       this.errorMsg = error.message;
-  //     }
-  //   );
-  // }
-
   OnSubmit(userName, password) {
     this.authService.login(userName, password).subscribe((data: any) => {
         this.errorMsg = '';
