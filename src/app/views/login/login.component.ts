@@ -10,18 +10,21 @@ import { HttpErrorResponse } from '@angular/common/http';
   templateUrl: 'login.component.html'
 })
 export class LoginComponent implements OnInit {
-  isLoginError: boolean = false;
+
+  isLoginError = false;
+  errorMsg = '';
+
   constructor(
     private authService: AuthRouteService,
     private router: Router) {}
 
-  ngOnInit() {
+  ngOnInit(
+  ) {
 
   }
 
-  // login(): void {
-  //   this.authService.login(this.loginForm.value
-  //   .username, this.loginForm.value.password).subscribe(
+  // login(username, password): void {
+  //   this.authService.login(username, password).subscribe(
   //     res => {
   //       if (res.data.count === 1) {
   //         this.errorMsg = '';
@@ -38,13 +41,19 @@ export class LoginComponent implements OnInit {
   // }
 
   OnSubmit(userName, password) {
-    debugger;
     this.authService.login(userName, password).subscribe((data: any) => {
-      //localStorage.setItem('userToken', data.token);
-      this.router.navigateByUrl('/dashboard');
+        this.errorMsg = '';
+        localStorage.setItem('userToken', data.token);
+        this.authService.loggedIn = true;
+        this.router.navigateByUrl('/dashboard');
     },
-    (err: HttpErrorResponse) => {
-      this.isLoginError = true;
+    error => {
+      this.errorMsg = error.message;
     });
+  }
+
+  OnClickRegister() {
+    // tslint:disable-next-line:no-debugger
+    this.router.navigateByUrl('/register');
   }
 }

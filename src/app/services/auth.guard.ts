@@ -8,7 +8,7 @@ import { AuthRouteService } from './auth.service';
 @Injectable()
 export class AuthGuard implements CanActivate {
 
-  public isLoggedIn: boolean = false;
+  public isLoggedIn = false;
   public redirectUrl: string;
 
   constructor(private router: Router, private authService: AuthRouteService) {}

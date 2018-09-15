@@ -33,6 +33,7 @@ export const routes: Routes = [
   },
   {
     path: 'login',
+    // canActivate: [AuthGuard],
     component: LoginComponent,
     data: {
       title: 'Login Page'
@@ -47,6 +48,7 @@ export const routes: Routes = [
   },
   {
     path: '',
+    canActivate: [AuthGuard],
     component: DefaultLayoutComponent,
     data: {
       title: 'Home'
@@ -66,7 +68,6 @@ export const routes: Routes = [
       },
       {
         path: 'dashboard',
-        canActivate: [AuthGuard],
         loadChildren: './views/dashboard/dashboard.module#DashboardModule'
       },
       {
