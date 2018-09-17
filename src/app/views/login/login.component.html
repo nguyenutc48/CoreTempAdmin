@@ -21,7 +21,9 @@
                     </div>
                     <input #Password name="Password" type="password" class="form-control" placeholder="Password" autocomplete="current-password" [pattern]="passwordPatternStreng" required>
                   </div>
-                  {{errorMsg}}
+                  <div *ngIf="isLoginError" class="red-text center error-message">
+                    <i class="material-icons">error</i> Incorrect username or password
+                </div>
                   <div class="row">
                     <div class="col-6">
                       <button [disabled]="!loginForm.valid" type="submit" class="btn btn-primary px-4">Login</button>

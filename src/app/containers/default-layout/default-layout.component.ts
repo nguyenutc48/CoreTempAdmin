@@ -26,6 +26,7 @@ export class DefaultLayoutComponent {
   Logout() {
     this.authservice.logout();
     localStorage.removeItem('userToken');
+    localStorage.removeItem('userRoles');
     this.route.navigateByUrl('/login');
   }
 }
