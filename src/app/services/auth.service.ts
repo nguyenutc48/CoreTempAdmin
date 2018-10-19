@@ -16,7 +16,7 @@ import { UserLogin } from '../models/login.model';
 @Injectable()
 export class AuthRouteService {
     public redirectUrl: string;
-    private API_URL = 'https://localhost:44357/api/';
+    private API_URL = 'http://107.107.161.71:8080/api/';
     private Login_url = this.API_URL + 'auth/login';
     private Register_url = this.API_URL + 'employee';
     public loggedIn = false;
