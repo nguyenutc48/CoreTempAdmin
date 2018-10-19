@@ -15,14 +15,14 @@ export class RegisterComponent implements OnInit {
   passwordPatternStreng = '(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$';
   passwordPatternNormal = '^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$';
 
-  constructor(private authservice: AuthRouteService, private toastr: ToastrService, private route: Router) { }
+  constructor(private authservice: AuthRouteService, private toastr: ToastrService, private router: Router) { }
 
   ngOnInit() {
     this.resetForm();
   }
 
   showSuccess() {
-    this.route.navigateByUrl('/login');
+    this.router.navigateByUrl('/login');
   }
 
   resetForm(form?: NgForm) {
@@ -34,22 +34,15 @@ export class RegisterComponent implements OnInit {
       Email: '',
       Password: '',
       RePassword: '',
-      Fullname: ''
+      FullName: ''
     };
   }
 
   OnSubmit(form: NgForm) {
-    // tslint:disable-next-line:no-debugger
-    debugger;
     if (form.value.Password === form.value.RePassword) {
       this.authservice.registerUser(form.value)
       .subscribe((data: any) => {
-        if (data.Succeeded === true) {
-          this.resetForm(form);
-          this.toastr.success('User registration successful');
-        } else {
-          this.toastr.error(data.Errors[0]);
-        }
+        this.showSuccess();
       });
     } else {
       this.toastr.error('Mật khẩu không khớp');

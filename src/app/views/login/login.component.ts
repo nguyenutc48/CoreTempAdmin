@@ -26,9 +26,9 @@ export class LoginComponent implements OnInit {
 
   OnSubmit(userName, password) {
     this.authService.login(userName, password).subscribe((data: any) => {
-        this.isLoginError =false;
+        this.isLoginError = false;
         localStorage.setItem('userToken', data.token);
-        localStorage.setItem('userRoles',data.roles);
+        localStorage.setItem('userRoles', data.roles);
         this.authService.loggedIn = true;
         this.router.navigateByUrl('/dashboard');
     },

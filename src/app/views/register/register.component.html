@@ -12,13 +12,13 @@
                   <div class="input-group-prepend">
                     <span class="input-group-text"><i class="icon-user"></i></span>
                   </div>
-                  <input type="text" class="form-control" placeholder="Username" autocomplete="username" name="UserName" #UserName="ngModel" [(ngModel)]="user.UserName" required>
+                  <input type="text" class="form-control" placeholder="GEN" autocomplete="username" name="UserName" #UserName="ngModel" [(ngModel)]="user.UserName" required>
                 </div>
                 <div class="input-group mb-3">
                   <div class="input-group-prepend">
                     <span class="input-group-text"><i class="icon-user"></i></span>
                   </div>
-                  <input type="text" class="form-control" placeholder="Fullname" autocomplete="fullname" name="FullName" #FullName="ngModel" [(ngModel)]="user.Fullname" required>
+                  <input type="text" class="form-control" placeholder="Full Name" autocomplete="fullname" name="FullName" #FullName="ngModel" [(ngModel)]="user.FullName" required>
                 </div>
                 
                 <div class="input-group mb-3">
@@ -31,13 +31,13 @@
                   <div class="input-group-prepend">
                     <span class="input-group-text"><i class="icon-lock"></i></span>
                   </div>
-                  <input type="password" class="form-control" placeholder="Password" autocomplete="new-password" name="Password" #Password="ngModel" [(ngModel)]="user.Password" [pattern]="passwordPatternStreng" required>
+                  <input type="password" class="form-control" placeholder="Password" autocomplete="new-password" name="Password" #Password="ngModel" [(ngModel)]="user.Password"  required>
                 </div>
                 <div class="input-group mb-4">
                   <div class="input-group-prepend">
                     <span class="input-group-text"><i class="icon-lock"></i></span>
                   </div>
-                  <input data-match="user.Password" type="password" class="form-control" placeholder="Repeat password" autocomplete="new-password" name="RePassword" #RePassword="ngModel" [(ngModel)]="user.RePassword" [pattern]="passwordPatternStreng" required>
+                  <input data-match="user.Password" type="password" class="form-control" placeholder="Repeat password" autocomplete="new-password" name="RePassword" #RePassword="ngModel" [(ngModel)]="user.RePassword" required>
                 </div>
                 
                 <button [disabled]="!userRegistrationForm.valid" type="submit" class="btn btn-block btn-success">Create Account</button>
